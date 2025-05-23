@@ -23,7 +23,7 @@ function setup() {
   video.size(width, height);
   video.hide();
 
-  facemesh = ml5.facemesh(video, modelReady);
+  facemesh = ml5.faceMesh(video, modelReady); // 修正這一行
   facemesh.on("predict", results => {
     predictions = results;
   });
