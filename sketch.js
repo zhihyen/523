@@ -19,6 +19,7 @@ function setup() {
   facemesh.on("predict", results => {
     predictions = results;
   });
+  console.log(video); // 新增這行
 }
 
 function modelReady() {
