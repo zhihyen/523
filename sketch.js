@@ -33,6 +33,7 @@ function draw() {
 }
 
 function drawFaceMesh() {
+  console.log(predictions); // 新增這行
   if (predictions.length > 0) {
     const keypoints = predictions[0].scaledMesh;
     stroke(255, 0, 0); // 紅色線條
@@ -41,8 +42,10 @@ function drawFaceMesh() {
     beginShape();
     for (let i = 0; i < FACEMESH_POINTS.length; i++) {
       let idx = FACEMESH_POINTS[i];
-      let [x, y] = keypoints[idx];
-      vertex(x, y);
+      if (keypoints[idx]) {
+        let [x, y] = keypoints[idx];
+        vertex(x, y);
+      }
     }
     endShape();
   }
